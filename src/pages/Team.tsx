@@ -60,16 +60,6 @@ const Team: React.FC = () => {
       image: ProfileImg
     },
     {
-      id: 6,
-      name: 'Sandhiya Sri N',
-      role: 'Co-Ordinator',
-      year: '2nd Year AI&DS',
-      bio: 'Blockchain and cryptocurrency enthusiast with strong analytical skills. Has developed smart contracts and DApps. Also manages the club\'s finances and sponsors relationships with excellent attention to detail.',
-      skills: ['Python', 'C', 'HTML', 'CSS'],
-      social: { linkedin: '', github: '', email: '', Phone:'' },
-      image: takshedaImg
-    },
-    {
       id: 7,
       name: 'Shalini M',
       role: 'Co-Ordinator',

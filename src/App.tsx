@@ -5,11 +5,10 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import AboutClub from './pages/AboutClub';
 import AboutCollege from './pages/AboutCollege';
-import Events from './pages/EventsPage';
 import Team from './pages/Team';
 import Contact from './pages/Contact';
 import EventsPage from './pages/EventsPage';
-import IntraHackathonPage from './pages/IntraHackathonPage';
+import SymposiumPage from './pages/SymposiumPage';
 
 function App() {
   return (
@@ -21,7 +20,7 @@ function App() {
             <Route path="/about-club" element={<AboutClub />} />
             <Route path="/about-college" element={<AboutCollege />} />
             <Route path="/events" element={<EventsPage />} />
-            <Route path="/intra-hackathon" element={<IntraHackathonPage />} />
+            <Route path="/symposium" element={<SymposiumPage />} />
             <Route path="/team" element={<Team />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

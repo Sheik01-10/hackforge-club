@@ -22,32 +22,32 @@ const techEvents: EventType[] = [
     title: "Logovation",
     img: logoImg,
     description:
-      "Develop a pre-built logo provided by our team using your creativity and design knowledge. Required software will be provided.",
+      "Develop a pre-built logo provided by our team using your creativity and design knowledge.",
     rules: [
-      "Do not use any other AI-based software without the consent of the event inspector",
-      "This is a solo event",
+      "No AI tools without event inspector permission",
+      "Solo event",
     ],
   },
   {
     title: "Code Crafter",
     img: codeImg,
     description:
-      "Write code based on the given task and provide the estimated output. The participant who finishes first with correct logic will be the winner.",
+      "Solve coding problems and predict output with correct logic.",
     rules: [
-      "No AI tools should be involved in the coding process",
-      "Participants must not discuss with colleagues",
-      "Usage of smartphones is strictly prohibited during the event",
+      "No AI tools allowed",
+      "No discussion with others",
+      "Mobile phones strictly prohibited",
     ],
   },
   {
     title: "Folio Tech",
     img: folioImg,
     description:
-      "Build your own portfolio using the software provided during the event. The best portfolio will be selected as the winner.",
+      "Create a portfolio using the provided tools during the event.",
     rules: [
-      "Use only the software approved by the event inspector",
-      "Do not bring a pre-built portfolio",
-      "Any malpractice or unfair behavior will lead to disqualification",
+      "Only approved software allowed",
+      "No pre-built portfolios",
+      "Malpractice leads to disqualification",
     ],
   },
 ];
@@ -56,27 +56,27 @@ const nonTechEvents: EventType[] = [
   {
     title: "Crown & Castle",
     img: chessImg,
-    description: "Strategic chess-based competition to test planning skills.",
+    description: "A strategic chess battle testing your thinking skills.",
     rules: [
-      "Individual participation only",
+      "Individual event",
       "Standard chess rules apply",
       "Judges decision is final",
     ],
   },
   {
-    title: "Rebuz Puzzle",
+    title: "Rebus Puzzle",
     img: connectImg,
-    description: "Solve rebus-style puzzles using logic and reasoning.",
+    description: "Crack logical rebus puzzles within the time limit.",
     rules: [
-      "Individual event",
-      "No external help allowed",
+      "Individual participation",
+      "No external help",
       "Time-based evaluation",
     ],
   },
 ];
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 70, scale: 0.92 },
+  hidden: { opacity: 0, y: 80, scale: 0.9 },
   visible: {
     opacity: 1,
     y: 0,
@@ -89,39 +89,38 @@ const SymposiumPage: React.FC = () => {
   const [selectedEvent, setSelectedEvent] = useState<EventType | null>(null);
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#0f172a,_#000000_70%)] text-white py-20 px-6">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#3b0000,_#000_70%)] text-white py-24 px-6">
 
-      {/* ================= TITLE ================= */}
+      {/* ===== TITLE ===== */}
       <motion.div
-        initial={{ opacity: 0, y: -50 }}
+        initial={{ opacity: 0, y: -60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="max-w-6xl mx-auto text-center mb-32"
+        className="max-w-6xl mx-auto text-center mb-36"
       >
         <span className="inline-block mb-6 px-6 py-2 rounded-full
-        bg-white/10 backdrop-blur text-cyan-300 text-xs tracking-[0.4em] font-semibold">
+        bg-red-500/10 border border-red-400/40
+        text-red-300 text-xs tracking-[0.4em] font-semibold">
           SYMPOSIUM
         </span>
 
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold mb-8">
-          <span className="bg-clip-text text-transparent
-          bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400">
-            Innovista
+          <span className="text-red-500 drop-shadow-[0_0_25px_red]">
+            INNOVISTA
           </span>{" "}
-          <span className="text-white">— 2K26</span>
+          <span className="text-white">2K’26</span>
         </h1>
 
-        <p className="max-w-3xl mx-auto text-gray-400 text-lg sm:text-xl">
-          A premium platform where innovation meets excellence across
-          Technical and Non-Technical domains.
+        <p className="max-w-3xl mx-auto text-gray-300 text-lg sm:text-xl">
+          Organized by the Department of Artificial Intelligence &
+          Data Science, Al-Ameen Engineering College.
         </p>
       </motion.div>
 
-      {/* ================= TECH EVENTS ================= */}
+      {/* ===== TECH EVENTS ===== */}
       <section className="max-w-7xl mx-auto mb-36">
         <h2 className="text-center text-4xl md:text-5xl font-extrabold
-        bg-clip-text text-transparent bg-gradient-to-r
-        from-blue-400 to-indigo-500 mb-20">
+        text-red-400 mb-20">
           Technical Events
         </h2>
 
@@ -133,33 +132,37 @@ const SymposiumPage: React.FC = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.08 }}
               onClick={() => setSelectedEvent(event)}
               className="group relative rounded-[2.5rem] overflow-hidden
-              bg-white/5 backdrop-blur-xl border border-white/10
-              shadow-[0_40px_120px_rgba(0,0,0,0.8)]
-              cursor-pointer transition-all"
+              bg-red-900/10 backdrop-blur-xl
+              border border-red-500/30
+              shadow-[0_0_80px_rgba(255,0,0,0.35)]
+              cursor-pointer"
             >
               <img
                 src={event.img}
                 alt={event.title}
                 className="h-60 w-full object-cover group-hover:scale-110 transition duration-1000"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
               <div className="absolute bottom-0 p-8">
-                <h3 className="text-2xl font-bold mb-2">{event.title}</h3>
-                <p className="text-gray-300 text-sm">Click to view rules</p>
+                <h3 className="text-2xl font-bold mb-2 text-red-300">
+                  {event.title}
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Click to view rules
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* ================= NON-TECH EVENTS ================= */}
+      {/* ===== NON-TECH EVENTS ===== */}
       <section className="max-w-7xl mx-auto mb-36">
         <h2 className="text-center text-4xl md:text-5xl font-extrabold
-        bg-clip-text text-transparent bg-gradient-to-r
-        from-yellow-400 to-orange-500 mb-20">
+        text-orange-400 mb-20">
           Non-Technical Events
         </h2>
 
@@ -171,33 +174,38 @@ const SymposiumPage: React.FC = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.08 }}
               onClick={() => setSelectedEvent(event)}
               className="group relative rounded-[2.5rem] overflow-hidden
-              bg-white/5 backdrop-blur-xl border border-white/10
-              shadow-[0_40px_120px_rgba(0,0,0,0.8)]
-              cursor-pointer transition-all"
+              bg-orange-900/10 backdrop-blur-xl
+              border border-orange-500/30
+              shadow-[0_0_80px_rgba(255,120,0,0.35)]
+              cursor-pointer"
             >
               <img
                 src={event.img}
                 alt={event.title}
                 className="h-60 w-full object-cover group-hover:scale-110 transition duration-1000"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent" />
               <div className="absolute bottom-0 p-8">
-                <h3 className="text-2xl font-bold mb-2">{event.title}</h3>
-                <p className="text-gray-300 text-sm">Click to view rules</p>
+                <h3 className="text-2xl font-bold mb-2 text-orange-300">
+                  {event.title}
+                </h3>
+                <p className="text-gray-300 text-sm">
+                  Click to view rules
+                </p>
               </div>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* ================= RULES MODAL ================= */}
+      {/* ===== MODAL ===== */}
       <AnimatePresence>
         {selectedEvent && (
           <motion.div
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur
+            className="fixed inset-0 z-50 bg-black/85 backdrop-blur
             flex items-center justify-center px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -208,12 +216,11 @@ const SymposiumPage: React.FC = () => {
               initial={{ scale: 0.85, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.85, opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              className="bg-[#120000] rounded-3xl max-w-lg w-full p-8
+              border border-red-500/30 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
-              className="bg-gray-900 rounded-3xl max-w-lg w-full p-8
-              border border-white/10 shadow-2xl"
             >
-              <h3 className="text-3xl font-bold mb-2 text-blue-400">
+              <h3 className="text-3xl font-bold mb-2 text-red-400">
                 {selectedEvent.title}
               </h3>
 
@@ -230,8 +237,8 @@ const SymposiumPage: React.FC = () => {
               <button
                 onClick={() => setSelectedEvent(null)}
                 className="mt-8 w-full py-3 rounded-full
-                bg-gradient-to-r from-blue-600 to-indigo-600
-                font-semibold"
+                bg-gradient-to-r from-red-600 to-orange-600
+                font-semibold shadow-[0_0_25px_rgba(255,60,60,0.7)]"
               >
                 Close
               </button>
@@ -240,7 +247,7 @@ const SymposiumPage: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* ================= CTA ================= */}
+      {/* ===== CTA ===== */}
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -258,9 +265,9 @@ const SymposiumPage: React.FC = () => {
           onClick={() =>
             window.open("https://forms.gle/QxWo2PqWa3nx8Mns9", "_blank")
           }
-          className="px-20 py-6 rounded-full text-lg font-semibold
-          bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600
-          shadow-[0_30px_120px_rgba(79,70,229,0.75)]"
+          className="px-20 py-6 rounded-full text-lg font-bold
+          bg-gradient-to-r from-red-600 via-orange-500 to-red-600
+          shadow-[0_0_80px_rgba(255,80,80,0.8)]"
         >
           Register Now
         </motion.button>

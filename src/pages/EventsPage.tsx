@@ -6,65 +6,81 @@ import symposiumImg from "../assets/events/web.jpeg";
 const EventsPage: React.FC = () => {
   const navigate = useNavigate();
 
-  const goToSymposium = () => {
-    console.log("CARD CLICKED");
-    navigate("/symposium");
-  };
-
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center px-4 py-10">
+    <div className="min-h-screen bg-black flex items-center justify-center px-4 py-12">
 
-      {/* CLICKABLE CARD */}
+      {/* MAIN CARD */}
       <motion.div
-        onClick={goToSymposium}
-        initial={{ opacity: 0, y: 60 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        whileHover={{ scale: 1.03 }}
+        onClick={() => navigate("/symposium")}
+        initial={{ opacity: 0, scale: 0.9, y: 80 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.97 }}
-        className="relative w-full max-w-md sm:max-w-6xl
-        rounded-[2.2rem] overflow-hidden
-        border border-white/10
-        shadow-[0_40px_120px_rgba(0,0,0,0.9)]
-        cursor-pointer"
+        className="
+          relative w-full max-w-6xl
+          rounded-[2.5rem] overflow-hidden
+          border border-red-500/30
+          shadow-[0_0_120px_rgba(255,0,0,0.35)]
+          cursor-pointer
+        "
       >
 
-        {/* IMAGE */}
+        {/* BACKGROUND IMAGE */}
         <img
           src={symposiumImg}
           alt="Innovista 2K26"
-          className="w-full h-[420px] sm:h-[560px] object-cover"
+          className="w-full h-[460px] sm:h-[620px] object-cover"
         />
 
-        {/* OVERLAY */}
-        <div className="absolute inset-0 bg-black/70 pointer-events-none" />
+        {/* DARK + RED GLOW OVERLAY */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-red-900/60 to-black/95" />
 
-        {/* CONTENT (IMPORTANT FIX) */}
-        <div className="absolute inset-0 flex flex-col justify-end sm:justify-center
-        px-6 sm:px-16 pb-6 pointer-events-none">
+        {/* CONTENT */}
+        <div className="
+          absolute inset-0
+          flex flex-col justify-center
+          px-6 sm:px-20
+        ">
 
-          <span className="mb-3 px-5 py-2 w-fit rounded-full
-          bg-white/10 backdrop-blur text-cyan-300 text-xs tracking-[0.3em]">
-            SYMPOSIUM
+          {/* TAG */}
+          <span className="
+            mb-5 w-fit px-6 py-2 rounded-full
+            bg-red-500/10 backdrop-blur
+            border border-red-400/40
+            text-red-300 text-xs tracking-[0.35em]
+          ">
+             SYMPOSIUM
           </span>
 
-          <h1 className="text-4xl sm:text-6xl font-extrabold mb-3">
-            <span className="text-blue-400">Innovista</span>
-            <span className="text-white"> — 2K26</span>
+          {/* TITLE */}
+          <h1 className="text-4xl sm:text-7xl font-extrabold mb-4 leading-tight">
+            <span className="text-red-500 drop-shadow-[0_0_25px_red]">
+              INNOVISTA-
+            </span>
+            <span className="text-white"> 2K’26</span>
           </h1>
 
-          <p className="text-gray-300 text-sm sm:text-xl mb-6 max-w-2xl">
-            National-level symposium with elite Technical &
-            Non-Technical events.
+          {/* SUBTITLE */}
+          <p className="text-gray-300 text-sm sm:text-xl max-w-3xl mb-6">
+            A National Level Technical Symposium organized by the
+            <span className="text-red-400 font-semibold">
+              {" "}Department of Artificial Intelligence & Data Science
+            </span>.
           </p>
 
-          <div className="px-8 py-3 w-fit rounded-full
-          bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600
-          text-white font-semibold shadow-xl">
+
+          {/* CTA */}
+          <div className="
+            w-fit px-10 py-4 rounded-full
+            bg-gradient-to-r from-red-600 via-orange-500 to-red-600
+            text-white font-bold text-lg
+            shadow-[0_0_30px_rgba(255,60,60,0.8)]
+          ">
             Enter Symposium →
           </div>
-        </div>
 
+        </div>
       </motion.div>
     </div>
   );

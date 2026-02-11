@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import brochureImg from "../assets/broucher.jpeg"; // use your actual path
+import brochureImg from "../assets/broucher.png"; // use your actual path
 
 const BrochurePopup: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
